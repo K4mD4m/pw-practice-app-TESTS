@@ -3,44 +3,34 @@ import { Locator, Page } from "@playwright/test";
 export class NavigationPage {
 
     readonly page: Page
-    readonly formLayoutesMenuItem: Locator
-    readonly datepickerMenuItem: Locator
-    readonly smartTableMenuItem: Locator
-    readonly toastrMenuItem: Locator
-    readonly tooltipMenuItem: Locator
 
     constructor(page: Page) {
         this.page = page
-        this.formLayoutesMenuItem = page.getByText('Form Layouts')
-        this.datepickerMenuItem = page.getByText('Datepicker')
-        this.smartTableMenuItem = page.getByText('Smart Table')
-        this.toastrMenuItem = page.getByText('Toastr')
-        this.tooltipMenuItem = page.getByText('Tooltip')
     }
 
     async formLayoutsPage() {
         await this.selectGroupMenuItem('Forms')
-        await this.formLayoutesMenuItem.click()
+        await this.page.getByText('Form Layouts').click()
     }
 
     async datepickerPage() {
         await this.selectGroupMenuItem('Forms')
-        await this.datepickerMenuItem.click()
+        await this.page.getByText('Datepicker').click()
     }
 
     async smartTablePage() {
         await this.selectGroupMenuItem('Tables & Data')
-        await this.smartTableMenuItem.click()
+        await this.page.getByText('Smart Table').click()
     }
 
     async toastrPage() {
         await this.selectGroupMenuItem('Modal & Overlays')
-        await this.toastrMenuItem.click()
+        await this.page.getByText('Toastr').click()
     }
 
     async tooltipPage() {
         await this.selectGroupMenuItem('Modal & Overlays')
-        await this.tooltipMenuItem.click()
+        await this.page.getByText('Tooltip').click()
     }
 
     private async selectGroupMenuItem(groupItemTitle: string) {
