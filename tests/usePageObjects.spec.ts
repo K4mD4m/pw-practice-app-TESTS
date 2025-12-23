@@ -22,7 +22,11 @@ test('parameterized methods', async ({ page }) => {
 
     await pm.navigateTo().formLayoutsPage()
     await pm.onFormLayoutsPage().submitUsingTheGridFormWithCredentailsAndSelectOptions('test@test.com', 'Welcome1', 'Option 1')
+    await page.screenshot({ path: 'screenshots/formLayoutsPage.png' })
+    const buffer = await page.screenshot()
+    console.log(buffer.toString('base64'))
     await pm.onFormLayoutsPage().submitInlineFormWithNameEmailAndCheckbox(randomFullName, randomEmail, false)
+    await page.locator('nb-card', { hasText: "Inline form" }).screenshot({ path: 'screenshots/inlineForm.png' })
     await pm.navigateTo().datepickerPage()
     await pm.onDatepickerPage().selectCommonDatePickerDateFromToday(10)
     await pm.onDatepickerPage().selectDatePickerWithRangeFromToday(6, 15)
