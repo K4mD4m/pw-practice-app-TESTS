@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 
 test.beforeEach(async ({ page }, testInfo) => {
-    await page.goto('http://uitestingplayground.com/ajax')
+    await page.goto(process.env.URL)
     await page.getByText('Button Triggering AJAX Request').click()
     testInfo.setTimeout(testInfo.timeout + 2000)
 })
@@ -14,7 +14,6 @@ test('auto waiting', async ({ page }) => {
     // const text = await successButton.textContent()
     // await successButton.waitFor({ state: "attached" })
     // const text = await successButton.allTextContents()
-
 
     // expect(text).toContain('Data loaded with AJAX get request.')
 

@@ -3,7 +3,7 @@ import { PageManager } from '../page-objects/pageManager'
 import { faker } from '@faker-js/faker'
 
 test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:4200/')
+    await page.goto('/')
 })
 
 test('navigate to from page', async ({ page }) => {
@@ -21,7 +21,7 @@ test('parameterized methods', async ({ page }) => {
     const randomEmail = `${randomFullName.replace(' ', '')}${faker.number.int(10000)}@test.com`
 
     await pm.navigateTo().formLayoutsPage()
-    await pm.onFormLayoutsPage().submitUsingTheGridFormWithCredentailsAndSelectOptions('test@test.com', 'Welcome1', 'Option 1')
+    await pm.onFormLayoutsPage().submitUsingTheGridFormWithCredentailsAndSelectOptions(process.env.USERNAME, process.env.PASSWORD, 'Option 1')
     await page.screenshot({ path: 'screenshots/formLayoutsPage.png' })
     const buffer = await page.screenshot()
     console.log(buffer.toString('base64'))
