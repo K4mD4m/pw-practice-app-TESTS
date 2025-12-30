@@ -70,6 +70,8 @@
     "@playwright/test": "^1.57.0",
     "@types/leaflet": "1.2.3",
     "@types/node": "^12.12.70",
+    "allure-commandline": "^2.36.0",
+    "allure-playwright": "^3.4.3",
     "codelyzer": "^0.0.28",
     "conventional-changelog-cli": "^2.2.2",
     "dotenv": "^17.2.3",
