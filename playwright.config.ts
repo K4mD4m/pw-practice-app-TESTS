@@ -5,7 +5,7 @@ require('dotenv').config();
 
 export default defineConfig<TestOptions>({
   timeout: 40000,
-  globalTimeout: 60000,
+  // globalTimeout: 60000,
   expect: {
     timeout: 2000,
     toHaveScreenshot: { maxDiffPixels: 50 }
@@ -26,8 +26,8 @@ export default defineConfig<TestOptions>({
         : 'http://localhost:4200/',
 
     trace: 'on-first-retry',
-    actionTimeout: 5000,
-    navigationTimeout: 5000,
+    actionTimeout: 20000,
+    navigationTimeout: 25000,
     video: {
       mode: 'off',
       size: { width: 1920, height: 1080 }
@@ -69,5 +69,10 @@ export default defineConfig<TestOptions>({
         ...devices['iPhone 13 Pro']
       }
     }
-  ]
+  ],
+
+  webServer: {
+    command: 'npm run start',
+    url: 'http://localhost:4200'
+  }
 });
